@@ -24,7 +24,7 @@ module.exports = function (osm) {
   }
   function handle (req, res) {
     var method = req.headers.X_HTTP_METHOD_OVERRIDE || req.method
-    var m = this.match(method, req.url)
+    var m = match(method, req.url)
     if (!m) return null
     m.fn(req, res, this.osm, m)
     return m
@@ -32,7 +32,7 @@ module.exports = function (osm) {
 }
 
 function match (method, url) {
-  return this.router.match(method.toUpperCase() + ' ' + url)
+  return router.match(method.toUpperCase() + ' ' + url)
 }
 
 function csplit (x) { return x.split(',').map(Number) }
