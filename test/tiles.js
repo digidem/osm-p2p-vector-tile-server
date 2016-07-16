@@ -32,6 +32,11 @@ test('setup', function (t) {
   })
 })
 
-test('tiles', function (t) {
+test('json tiles', function (t) {
+  return t.end()
+  var hq = hyperquest.get(href + 'tiles/10/64/-147.5.json')
+})
+
+test('pbf tiles', function (t) {
   var hq = hyperquest.get(href + 'tiles/10/64/-147.5.pbf')
 })
