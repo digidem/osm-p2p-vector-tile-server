@@ -4,8 +4,8 @@ var geojsonvt = require('geojson-vt')
 var router = require('routes')()
 
 router.addRoute('GET /tiles/:z/:x/:y.pbf', function (req, res, osm, m) {
-  var xspan = 360 * Math.pow(2,-Number(m.params.z))
-  var yspan = xspan * Math.cos(params.y / 180 * Math.PI)
+  var xspan = 360 / Math.pow(2,Number(m.params.z))
+  var yspan = xspan * Math.cos(m.params.y / 180 * Math.PI)
   var q = [
     [m.params.y-yspan,m.params.y+yspan],
     [m.params.x-xspan,m.params.x+xspan]
@@ -26,7 +26,7 @@ module.exports = function (osm) {
     var method = req.headers.X_HTTP_METHOD_OVERRIDE || req.method
     var m = match(method, req.url)
     if (!m) return null
-    m.fn(req, res, this.osm, m)
+    m.fn(req, res, osm, m)
     return m
   }
 }
