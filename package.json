@@ -28,9 +28,13 @@
     "type": "git",
     "url": "git+https://github.com/digidem/osm-p2p-vector-tile-server.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "osm-p2p",
+    "openstreetmap",
+    "vector tile"
+  ],
+  "author": "substack",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/digidem/osm-p2p-vector-tile-server/issues"
   },
