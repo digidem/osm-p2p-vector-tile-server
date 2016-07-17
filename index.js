@@ -4,7 +4,7 @@ var geojsonvt = require('geojson-vt')
 var vtpbf = require('vt-pbf')
 var router = require('routes')()
 
-router.addRoute('GET /tiles/:z/:x/:y.:type', function (req, res, osm, m) {
+router.addRoute('GET /tiles/:z/:x/:y.:type(json|pbf)', function (req, res, osm, m) {
   var x = Number(m.params.x), y = Number(m.params.y)
   var xspan = 360 / Math.pow(2,Number(m.params.z))
   var yspan = xspan * Math.abs(Math.cos(y / 180 * Math.PI))
