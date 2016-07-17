@@ -1,5 +1,4 @@
 var togeojson = require('osmtogeojson')
-var osmdb = require('osm-p2p')
 var geojsonvt = require('geojson-vt')
 var vtpbf = require('vt-pbf')
 var router = require('routes')()
@@ -48,7 +47,6 @@ function match (method, url) {
   return router.match(method.toUpperCase() + ' ' + url)
 }
 
-function csplit (x) { return x.split(',').map(Number) }
 function wrap (elems) {
   return {
     version: 0.6,
