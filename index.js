@@ -25,7 +25,7 @@ router.addRoute('GET /tiles/:z/:x/:y.:type(json|pbf)', function (req, res, osm, 
       }))
     } else if (m.params.type === 'pbf') {
       res.setHeader('content-type', 'application/x-protobuf')
-      res.end(vtpbf.fromGeojsonVt({ 'geojsonLayer': tile }))
+      res.end(vtpbf.fromGeojsonVt({ 'osm-p2p': tile }))
     }
   })
 })

@@ -38,21 +38,47 @@ test('setup', function (t) {
   })
 })
 
-/*
 test('json tiles', function (t) {
-  var hq = hyperquest.get(href + 'tiles/10/64/-147.5.json')
+  t.plan(1)
+  var hq = hyperquest.get(href + 'tiles/9/64/-147.5.json')
   hq.pipe(concat({ encoding: 'string' }, function (body) {
-    console.log(body)
     var json = JSON.parse(body)
-    console.log(json)
+    var geom = {}
+    json.features.forEach(function (f) {
+      geom[f.tags.id] = f.geometry[0]
+    })
+    t.deepEqual(geom, {
+      A: [ 744, 2159 ],
+      B: [ 737, 2190 ],
+      C: [ 740, 2174 ]
+    })
   }))
 })
-*/
 
 test('pbf tiles', function (t) {
-  var hq = hyperquest.get(href + 'tiles/10/64/-147.5.pbf')
+  t.plan(1)
+  var hq = hyperquest.get(href + 'tiles/9/64/-147.5.pbf')
   hq.pipe(concat(function (body) {
     var tile = messages.tile.decode(body)
-    console.log(tile.layers)
+    var geom = {}
+    var layer = tile.layers[0]
+    layer.features.forEach(function (f) {
+      var tags = {}
+      for (var i = 0; i < f.tags.length; i += 2) {
+        var k = f.tags[i], v = f.tags[i+1]
+        tags[layer.keys[k]] = layer.values[v].string_value
+      }
+      geom[tags.id] = f.geometry
+    })
+    t.deepEqual(geom, {
+      A: [ 9, 744*2, 2159*2 ],
+      B: [ 9, 737*2, 2190*2 ],
+      C: [ 9, 740*2, 2174*2 ]
+    })
   }))
+})
+
+test('teardown', function (t) {
+  server.close()
+  t.end()
 })
