@@ -2,6 +2,8 @@
 
 serve vector tiles for an [osm-p2p][1] database
 
+[1]: https://github.com/digidem/osm-p2p
+
 # example
 
 Here is an example that sets up an OSM http API and vector tile API over the

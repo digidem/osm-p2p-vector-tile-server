@@ -12,5 +12,27 @@
     "protocol-buffers": "^3.1.6",
     "tape": "^4.6.0",
     "vector-tile": "^1.1.3"
-  }
+  },
+  "name": "osm-p2p-vector-tile-server",
+  "description": "serve vector tiles for an osm-p2p database",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "example": "example",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "tape test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/digidem/osm-p2p-vector-tile-server.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/digidem/osm-p2p-vector-tile-server/issues"
+  },
+  "homepage": "https://github.com/digidem/osm-p2p-vector-tile-server#readme"
 }
