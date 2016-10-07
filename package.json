@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "osm-p2p-vector-tile-index": "^1.0.0",
+    "osm-p2p-vector-tile-index": "^2.0.0",
     "routes": "^2.1.0"
   },
   "devDependencies": {
