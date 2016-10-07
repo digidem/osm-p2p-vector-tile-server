@@ -14,7 +14,7 @@
   },
   "name": "osm-p2p-vector-tile-server",
   "description": "serve vector tiles for an osm-p2p database",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "main": "index.js",
   "directories": {
     "example": "example",
