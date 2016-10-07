@@ -1,15 +1,14 @@
 {
   "dependencies": {
-    "geojson-vt": "^2.1.8",
-    "osmtogeojson": "^2.2.11",
-    "routes": "^2.1.0",
-    "vt-pbf": "^2.0.2"
+    "osm-p2p-vector-tile-index": "^1.0.0",
+    "routes": "^2.1.0"
   },
   "devDependencies": {
     "concat-stream": "^1.5.1",
     "hyperquest": "^2.0.0",
     "osm-p2p": "^1.2.3",
     "protocol-buffers": "^3.1.6",
+    "standard": "^8.3.0",
     "tape": "^4.6.0",
     "vector-tile": "^1.1.3"
   },

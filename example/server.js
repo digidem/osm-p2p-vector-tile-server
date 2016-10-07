@@ -6,9 +6,9 @@ var osmserver = require('osm-p2p-server')(osm)
 var vector = require('../')(osm)
 
 var server = http.createServer(function (req, res) {
-  if (osmserver.handle(req, res)) {}
-  else if (vector.handle(req, res)) {}
-  else {
+  if (osmserver.handle(req, res)) {
+  } else if (vector.handle(req, res)) {
+  } else {
     res.statusCode = 404
     res.end('not found\n')
   }
