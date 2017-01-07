@@ -16,7 +16,12 @@ router.addRoute('GET /tiles/:z/:x/:y.:type(mvt)', function (req, res, vti, m) {
         res.setHeader('Content-Encoding', 'gzip')
         res.setHeader('Content-Type', 'application/x-protobuf')
         zlib.gzip(pbfTile, function (err, data) {
-          res.end(data)
+          if (err) {
+            res.statusCode = 500
+            res.end('Error compressing tile')
+          } else {
+            res.end(data)
+          }
         })
       }
     })
